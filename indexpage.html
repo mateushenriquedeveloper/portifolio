@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Minha Landing Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Estilos CSS para a página */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            background: linear-gradient(95deg, black, white);
+            background-size: 400% 400%; /* Define o tamanho do gradiente */
+            animation: gradientAnimation 10s ease infinite; /* Adiciona a animação ao gradiente */
+        }
+
+        /* Definição da animação */
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+        }
+        header {
+            background-color: burlywood;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            transition: background-color 0.9s ease;
+        }
+        header:hover {
+            background-color: #a19483;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        nav ul li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+        }
+        .carousel {
+            display: flex;
+            overflow: hidden;
+            white-space: nowrap;
+            margin-bottom: 20px; /* Adiciona margem inferior entre os carrosséis */
+        }
+        .carousel img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+        .carousel img:hover {
+            transform: scale(1.05);
+        }
+        @media screen and (max-width: 768px) {
+            .texto {
+                margin-top: 20px; /* Ajuste para visualização em dispositivos menores */
+                max-width: 100%; /* Largura máxima do texto */
+                word-wrap: break-word; /* Quebra de linha automática */
+                text-align: center; /* Centraliza o texto */
+            }
+        }
+
+        /* Estilos para a imagem do perfil */
+        .imagem-perfil {
+            border-radius: 50%; /* Bordas arredondadas */
+            width: 300px; /* Largura da imagem */
+            height: 300px; /* Altura da imagem */
+            display: block; /* Para centralizar horizontalmente */
+            margin: 0 auto; /* Para centralizar horizontalmente */
+            position: relative; /* Posicionamento relativo para ajuste fino */
+            top: 0; /* Ajuste de posicionamento vertical */
+            z-index: 1; /* Para garantir que a imagem fique sobreposta */
+            transition: border 0.3s ease; /* Transição suave para realçar bordas */
+        }
+        .imagem-perfil:hover {
+            border: 5px solid blue; /* Realce das bordas quando o mouse passa por cima */
+        }
+
+        /* Estilos para os ícones */
+        .icones-laterais {
+            position: fixed;
+            top: 65%;
+            right: 10px;
+            transform: translateY(-50%);
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+        }
+        .icones-laterais img {
+            width: 50px;
+            height: auto;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: transform 0.5s ease; /* Transição suave para o efeito de realce */
+        }
+        .icones-laterais img:hover {
+            transform: scale(1.1); /* Aumenta ligeiramente o tamanho ao passar o mouse */
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 18px;
+            color: #fff;
+            background-color: grey;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #000000;
+        }
+
+        /* Estilos para o menu lateral */
+        .menu-lateral {
+            display: none; /* Inicialmente oculto */
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 20%; /* Largura do menu lateral */
+            height: 100%;
+            background-color: #333; /* Cor de fundo do menu lateral */
+            padding: 20px;
+            box-sizing: border-box;
+            overflow-y: auto; /* Adiciona barra de rolagem se o conteúdo for longo */
+            z-index: 999;
+            flex-direction: column; /* Exibe os ícones em uma sequência vertical */
+        }
+        .menu-lateral a {
+            display: block;
+            color: #fff;
+            text-decoration: none;
+            margin-bottom: 10px;
+        }
+        .menu-lateral img {
+            width: 50px;
+            height: auto;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: transform 0.5s ease; /* Transição suave para o efeito de realce */
+        }
+        .menu-lateral img:hover {
+            transform: scale(1.1); /* Aumenta ligeiramente o tamanho ao passar o mouse */
+        }
+        .btn-menu {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            color: #fff;
+            font-size: 24px;
+            z-index: 10000;
+        }
+        .btn-menu:hover {
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Técnico em Edificações | Mateus Henrique</h1>
+        <p>SISTEC: 38647/110459542CM</p>
+        <nav>
+            <ul>
+                <li><a href="inicio.html" class="nav-link btn">Videos Projetos</a></li>
+                <li><a href="certificados.html" class="nav-link btn">Certificados</a></li>
+                <li><a href="https://api.whatsapp.com/send?phone=5545984184074" class="nav-link btn">WhatsApp</a></li>
+                <li><a href="mailto:mateus.henrique.ifpr@gmail.com" class="nav-link btn">Enviar e-mail</a></li>
+            </ul>
+        </nav>
+    </header>
+   <div style="position: relative; text-align: center;">
+        <img src="perfil.jpg" alt="Descrição da imagem" class="imagem-perfil">
+        <div class="texto">
+            <p>Mateus Henrique Fonseca Xavier da Silva</p>
+            <p>Softwares:</p>
+            <p>Projeto Arquitetônico Revit</p>
+            <p>Planta baixa Revit</p>
+            <p>Projeto Elétrico - Revit</p>
+            <p>Planta baixa Autocad</p>
+            <p>Renderização Externa -Twinimotion</p>
+            <p>Renderização Externa 3DS max chaos cosmos</p>
+            <p>Pacote Office: Word, PowerPoint e Excel</p>
+            <p>Programação Web: HTML, CSS, JavaScript + Copilot - VS Code</p>
+            <p>Canvas Design</p>
+            <p>Planejamento de construção MS Project</p>
+        </div>
+    </div>
+    <!-- Menu lateral -->
+    <div class="btn-menu" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+    </div>
+    <div class="menu-lateral" id="menu-lateral">
+        <a href="revit.html"><img src="revit.jpg" alt="Revit"></a>
+        <a href="autocad.html"><img src="autocad.jpg" alt="AutoCAD"></a>
+        <a href="3dsmax.html"><img src="3dsmax.jpg" alt="3ds Max"></a>
+        <a href="twinimotion.html"><img src="twinimotion.jpg" alt="Twinmotion"></a>
+        <a href="https://github.com/mateushenriquedeveloper"> <img src="github.jpg" alt="github"></a>        
+        <a href="vscode.html"><img src="vscode.jpg" alt="VS Code"></a>
+     <!--     <a href="front.html"><img src="front.jpg" alt="Frontend"></a> 
+        <a href="pacoteoffice.html"><img src="pacoteoffice.jpg" alt="Pacote Office"></a>
+        <a href="canvas.html"><img src="canvas.jpg" alt="Canvas"></a>
+        <a href="msproject.html"><img src="ms.jpg" alt="MS Project"></a> -->
+    </div>
+
+    <!-- Carrosséis de imagens -->
+    <div class="container">
+        <div class="carousel" id="carousel1">
+            <img src="twinimotion1.jpg" alt="twinimotion1.jpg">
+            <img src="twinimotion2.jpg" alt="twinimotion2.jpg">
+            <img src="twinimotion3.jpg" alt="twinimotion3.jpg">
+            <img src="twinimotion4.jpg" alt="twinimotion4.jpg">
+            <img src="twinimotion5.jpg" alt="twinimotion5.jpg">
+            <img src="twinimotion6.jpg" alt="twinimotion6.jpg">
+            <img src="twinimotion7.jpg" alt="twinimotion7.jpg">
+          <!--  <img src="twinimotion8.jpg" alt="twinimotion8.jpg">
+            <img src="twinimotion9.jpg" alt="twinimotion9.jpg">
+            <img src="twinimotion10.jpg" alt="twinimotion10.jpg">-->
+        </div>
+        
+        <div class="texto">
+            <p>Renderização com Twinmotion</p>
+            <p>Projetos renderizados com o Twinmotion, destacando aspectos de design e visualização de projetos arquitetônicos.</p>
+    </div>
+
+    <div class="container"> <!-- Adiciona um novo container -->
+        <button onclick="moveCarouselLeft('carousel2')">Anterior</button>
+        <div class="carousel" id="carousel2">
+            <img src="revit1.jpg" alt="revit1.jpg">
+            <img src="revit2.jpg" alt="revit2.jpg">
+            <img src="revit3.jpg" alt="revit3.jpg">
+         <img src="revit4.jpg" alt="revit4.jpg">
+            <!-- <img src="revit5.jpg" alt="revit5.jpg">
+            <img src="revit6.jpg" alt="revit6.jpg">
+            <img src="revit7.jpg" alt="revit7.jpg">
+            <img src="revit8.jpg" alt="revit8.jpg">
+            <img src="revit9.jpg" alt="revit9.jpg">
+            <img src="revit10.jpg" alt="revit10.jpg">-->
+        </div>
+        <button onclick="moveCarouselRight('carousel2')">Próximo</button>
+        <div class="texto">
+            <p>Projetos em Revit</p>
+            <p>projetos em Revit, incluindo plantas baixas, projetos arquitetônicos e elétricos.</p>
+        </div>
+        </div>
+    </div>
+
+    <div class="container"> <!-- Adiciona mais um novo container -->
+        <button onclick="moveCarouselLeft('carousel3')">Anterior</button>
+        <div class="carousel" id="carousel3">
+            <img src="3dsmax1.jpg" alt="3dsmax1.jpg">
+            <img src="3dsmax2.jpg" alt="3dsmax2.jpg">
+            <img src="3dsmax3.jpg" alt="3dsmax3.jpg">
+            <img src="3dsmax4.jpg" alt="3dsmax4.jpg">
+         <!--   <img src="3dsmax5.jpg" alt="3dsmax5.jpg">
+            <img src="3dsmax6.jpg" alt="3dsmax6.jpg">
+            <img src="3dsmax7.jpg" alt="3dsmax7.jpg">
+            <img src="3dsmax8.jpg" alt="3dsmax8.jpg">
+            <img src="3dsmax9.jpg" alt="3dsmax9.jpg">
+            <img src="3dsmax10.jpg" alt="3dsmax10.jpg">-->
+        </div>
+        <button onclick="moveCarouselRight('carousel3')">Próximo</button>
+        <div class="texto">
+            <p>Projetos em 3ds Max</p>
+            <p>Renderizações e modelos criados com o software 3ds Max, demonstrando projetos de design e visualização arquitetônica.</p>
+        </div>
+    </div>
+
+    <div class="container"> <!-- Adiciona mais um novo container -->
+        <button onclick="moveCarouselLeft('carousel4')">Anterior</button>
+        <div class="carousel" id="carousel4">
+            <img src="autocad1.jpg" alt="autocad1.jpg">
+            <img src="autocad2.jpg" alt="autocad2.jpg">
+           <img src="autocad3.jpg" alt="autocad3.jpg">
+            <!-- <img src="autocad4.jpg" alt="autocad4.jpg">
+            <img src="autocad5.jpg" alt="autocad5.jpg">
+            <img src="autocad6.jpg" alt="autocad6.jpg">
+            <img src="autocad7.jpg" alt="autocad7.jpg">
+            <img src="autocad8.jpg" alt="autocad8.jpg">
+            <img src="autocad9.jpg" alt="autocad9.jpg">
+            <img src="autocad10.jpg" alt="autocad10.jpg"> -->
+        </div>
+        <button onclick="moveCarouselRight('carousel4')">Próximo</button>
+        <div class="texto">
+            <p>Projetos em Autocad</p>
+            <p><P></P>Projetos desenvolvidos no Autocad, incluindo plantas baixas e detalhes arquitetônicos.</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById("menu-lateral");
+            if (menu.style.display === "block") {
+                menu.style.display = "none";
+            } else {
+                menu.style.display = "block";
+            }
+        }
+
+        // Implementação do efeito de realce nos ícones a cada 2 segundos
+        const icons = document.querySelectorAll('.icones-laterais img');
+        let highlightedIndex = 0;
+
+        setInterval(() => {
+            icons[highlightedIndex].style.border = '2px solid red'; // Realce do ícone atual
+            highlightedIndex = (highlightedIndex + 1) % icons.length;
+            icons.forEach((icon, index) => {
+                if (index !== highlightedIndex) {
+                    icon.style.border = 'none'; // Remove o realce dos outros ícones
+                }
+            });
+        }, 2000); // Altera o ícone realçado a cada 2 segundos
+
+        // Funções para mover o carrossel para a esquerda e direita
+        function moveCarouselLeft(carouselId) {
+            const carousel = document.getElementById(carouselId);
+            carousel.scrollLeft -= carousel.offsetWidth;
+        }
+
+        function moveCarouselRight(carouselId) {
+            const carousel = document.getElementById(carouselId);
+            carousel.scrollLeft += carousel.offsetWidth;
+        }
+
+        // Função para passar as imagens do primeiro carrossel automaticamente
+        const firstCarousel = document.getElementById('carousel1');
+        let scrollAmount = 0;
+
+        function autoScroll() {
+            scrollAmount += 1;
+            firstCarousel.scrollLeft = scrollAmount;
+
+            if (scrollAmount >= (firstCarousel.scrollWidth - firstCarousel.clientWidth)) {
+                scrollAmount = 0;
+            }
+        }
+
+        setInterval(autoScroll, 50); // Altera a imagem a cada 50 milissegundos
+    </script>
+</body>
+</html>

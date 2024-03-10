@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <li><a href="indexpage.html" class="nav-link btn">Voltar à página anterior</a></li>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Carrossel de Imagens</title>
+    <style>
+        /* Estilos para o carrossel de imagens */
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(95deg, beige, #f4f4f4);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+        }
+
+        .carousel {
+            display: flex;
+            overflow: hidden;
+            white-space: nowrap;
+            scroll-behavior: smooth;
+            margin-bottom: 20px; /* Adiciona margem inferior entre os carrosséis */
+        }
+
+        .carousel img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .carousel img:hover {
+            transform: scale(1.05);
+        }
+
+        .descricao {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 18px;
+    color: #fff;
+    background-color: grey;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #000000;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="carousel" id="carousel">
+            <img src="autocadprojeto1.jpg" alt="autocadprojeto1">
+            <img src="autocadprojeto2.jpg" alt="autocadprojeto2">
+            <img src="autocadprojeto3.jpg" alt="autocadprojeto3">
+         <!--     <img src="3dsmax4.jpg" alt="3dsmax4">
+            <img src="revitprojeto1.jpg" alt="revitprojeto1">
+            <img src="revitprojeto2.jpg" alt="revitprojeto2">
+            <img src="revitprojeto1.jpg" alt="revitprojeto1">
+            <img src="revitprojeto2.jpg" alt="revitprojeto2">-->
+            
+        </div>
+        <div class="descricao">
+            <p>Projetos em Autocad</p>
+            <p><P></P>Projetos desenvolvidos no Autocad, incluindo plantas baixas e detalhes arquitetônicos.</p>
+    </div>
+
+    <script>
+        let counter = 0;
+        const carousel = document.getElementById('carousel');
+        const images = carousel.getElementsByTagName('img');
+        setInterval(() => {
+            images[counter].style.display = 'none';
+            counter = (counter + 1) % images.length;
+            images[counter].style.display = 'block';
+        }, 3000); // Altera a imagem a cada 3 segundos
+    </script>
+</body>
+</html>

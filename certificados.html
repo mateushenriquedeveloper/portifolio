@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>certificados</title>
+    <style>
+        /* Estilos CSS para a página */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: linear-gradient(95deg, black, white);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background-color: burlywood;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            -ms-layout-grid-mode: 20px;
+            transition: background-color 0.9s ease; /* Adiciona uma transição suave ao realce */
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 18px;
+            color: #fff;
+            background-color: grey;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #000000;
+        }
+        header:hover {
+            background-color: #a19483; /* Altera a cor de fundo quando o mouse passa sobre o cabeçalho */
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        nav ul li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+        }
+        /* Estilos CSS para dispositivos móveis */
+        @media screen and (max-width: 768px) {
+            nav ul li {
+                display: block;
+                margin-bottom: 10px;
+            }
+        }
+        /* Estilos CSS para o carrossel de imagens */
+        .carousel {
+            display: flex;
+            overflow-x: hidden; /* Remover a barra de rolagem horizontal */
+            overflow-y: hidden; /* Remover a barra de rolagem vertical */
+            white-space: nowrap;
+            scroll-snap-type: x mandatory;
+            scroll-padding: 50%;
+            scroll-behavior: smooth;
+            position: relative; /* Posiciona o slider em relação ao seu posicionamento normal */
+            top: 95px; /* Move o slider 50px para baixo do topo da página */
+            width: 80%; /* Define a largura do slider como 80% da largura total da tela */
+            margin: 0 auto; /* Centraliza o slider horizontalmente */
+        }
+        .carousel img {
+            scroll-snap-align: center;
+            width: 100%;
+            height: auto;
+            border-radius: 10px; /* Adiciona bordas arredondadas às imagens */
+        }
+        /* Estilos CSS adicionais para colorir a página */
+        h1, h2, h3, h4, h5 {
+            color: whitesmoke;
+        }
+        p {
+            color: whitesmoke;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Certificados</h1>
+    <p>SISTEC: 38647/110459542CM</p>
+    <nav>
+        <ul>
+            <li><a href="indexpage.html" class="nav-link btn">Voltar à página anterior</a></li>
+
+            <li><a href="inicio.html" class="nav-link btn">Videos Projetos</a></li>
+            <li><a href="certificados.html" class="nav-link btn">Certificados</a></li>
+            <li><a href="https://api.whatsapp.com/send?phone=5545984184074" class="nav-link btn">WhatsApp</a></li>
+            <li><a href="mailto:mateus.henrique.ifpr@gmail.com" class="nav-link btn">Enviar e-mail</a></li>
+        </ul>
+    </nav>
+</header>
+<div class="container">
+    <h2>Nivel Técnico: Técnico em Edificações | Star Brasil</h2>
+    <h3>Formação Inicial Continuada: Desenhista Técnico (Arquitetura) Modelagem em BIM - IFMG |</h3>
+    <h4>Desenho Técnico: Leitura e Interpretação - IFMG</h4>
+    <h5>Cadista para a Construção Civil Projeto Arquitetônico - IFMG |</h5>
+    <h5>Programador Web - IFRGS</h5>
+    <p>Certificados.</p>
+    <!-- Carrossel de imagens -->
+    <div class="carousel" id="carousel">
+        <img src="certificado1.jpg" alt="certificado2.jpg">
+        <img src="certificado2.jpg" alt="certificado3.jpg">
+        <img src="certificado3.jpg" alt="certificado4.jpg">
+        <img src="certificado4.jpg" alt="certificado5.jpg">
+        <img src="certificado5.jpg" alt="certificado6.jpg">
+     <!--  <img src="certificado6.jpg" alt="certificado1.jpg">-->
+    </div>
+</div>
+<script>
+    // Exemplo de menu funcional usando JavaScript
+    const menuItems = document.querySelectorAll('nav ul li');
+    menuItems.forEach(item => {
+        item.addEventListener('click', () => {
+            // Implemente a lógica para lidar com os cliques nos itens do menu
+            console.log(`Você clicou em: ${item.textContent}`);
+        });
+    });
+
+    // Implementação do carrossel de imagens
+    let counter = 0;
+    const carousel = document.getElementById('carousel');
+    const images = carousel.getElementsByTagName('img');
+    setInterval(() => {
+        images[counter].style.display = 'none';
+        counter = (counter + 1) % images.length;
+        images[counter].style.display = 'block';
+    }, 3000); // Altera a imagem a cada 3 segundos
+</script>
+</body>
+</html>
